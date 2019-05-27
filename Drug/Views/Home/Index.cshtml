@@ -1,0 +1,52 @@
+﻿
+@model Drug.Models.CountryList
+
+
+<main class="main p-l-16 p-r-16 p-b-16" style="max-width:1000px; margin: 0 auto;">
+
+    @{
+        if (Model.Countries != null)
+        {
+            <div class="rows between b-transparent content drop-0 br-4 m-t-16 p-16" style="border:solid 1px #076891;">
+                <h2 style="color:#076891!important;" class="fw-6 c-white">Range - @Model.Countries.Count() countries</h2>
+                <img src="~/images/mrdisu bill.e png 4.png" style="width:120px; height:29px;" />
+            </div>
+            foreach (var country in Model.Countries)
+            {
+                string normalname = country.Name.Replace(" ", "");
+                <div id="@normalname" class="grid b-white content drop-1 br-4 m-t-16 p-0 overflow-hidden">
+                    <div class="col-3 col-ts-1 row-12 rows middle center" style="background-color:#076891!important;">
+                        <img class="b-white p-l-8 p-r-8 br-4 drop-1" src="@country.Flag" alt="@country.Name">
+                    </div>
+                    <div class="col-9 col-ts-11 row-1 rows middle fw-6 c-white" style="background-color:#076891!important;">
+                        <h3 class="fw-6">@country.Name</h3>
+                    </div>
+                    <div class="grid gutter-16 col-9 col-ts-11 row-11 p-16">
+                        @foreach (var service in country.Services)
+                        {
+                        <div class="col-12 col-ts-4 p-16 b-green br-4 drop-1 columns" style="background-color:#39ACD9!important;">
+                            <h4 class="fw-4 c-white p-b-8" style="font-weight:800;">@service.Header</h4>
+                            <hr class="d-b-white m-b-8">
+                            <div class="grid s-max-grow">
+                                @foreach (var colum in service.Columns)
+                                {
+                                    <div class="col-6">
+                                        @foreach (var bosy in colum.Body)
+                                        {
+                                            <div class="c-white fw-4 bother" >@bosy</div>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        }
+                      
+                    </div>
+                </div>
+
+            }
+
+        }
+    }
+   
+</main>
