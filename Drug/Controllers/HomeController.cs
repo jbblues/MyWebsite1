@@ -12,7 +12,7 @@ namespace Drug.Controllers
     {
         public IActionResult Index()
         {
-            CountryList countryList = new CountryList();
+            GroupList countryList = new GroupList();
             return View(countryList);
         }
 
@@ -20,6 +20,20 @@ namespace Drug.Controllers
         {
             ViewData["Message"] = "Your application description page.";
 
+            return View();
+        }
+
+        [Route("/{guid}")]
+        public IActionResult Details(string guid)
+        {
+            GroupList group = new GroupList();
+            var selected = group.DrugGroups.FirstOrDefault(d => d.AwonOgun.Exists(f => f.ID == guid)).AwonOgun.FirstOrDefault(g => g.ID == guid);
+            return View(selected);
+        }
+
+        [Route("/Order")]
+        public IActionResult Order()
+        {
             return View();
         }
 

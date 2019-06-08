@@ -1,0 +1,107 @@
+﻿@model Drug.Models.Ogun
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<div>
+    <h4>Ogun</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Header)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Header)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>*@
+<main class="main p-l-16 p-r-16 p-b-16" style="max-width:1000px; margin: 0 auto; width:fit-content;">
+    <div class="rows between b-transparent content drop-0 br-4 m-t-16 p-16" style="border:solid 1px #076891;">
+        <h2 style="color:#076891!important;" class="fw-6 c-white">Natural Remedy for Health Challenges</h2>
+        <img src="https://res.cloudinary.com/fzany-inc/image/upload/v1559032784/e4_qc3wtg.png" style="height:49px;" />
+    </div>
+
+    @{
+        if (Model != null)
+        {
+
+            <div class="rows between b-transparent content drop-0 br-4 m-t-16 p-16" style="border:solid 1px #076891;">
+                <p style="color:#076891!important;" class="fw-8 c-white">@Model.Header</p>
+                <p style="color:#076891!important;" class="fw-8 c-white">@Model.Price</p>
+                <p style="color:#076891!important;" class="fw-8 c-white">@Html.Raw(Model.HtmlDescription)</p>
+            </div>
+
+        }
+
+    }
+    <a href="https://johndrugstore.azurewebsites.net/order"><img alt="" src="https://res.cloudinary.com/fzany-inc/image/upload/v1559149756/royal-blue_iwk7x7.png" style="height: 81px; width: 232px;" /></a>
+
+    <div class="rows between b-transparent content drop-0 br-4 m-t-16 p-16" style="border:solid 1px #076891; width:300px;">
+        <div class="auto-style20"
+             style="font-family: &quot;Comic Sans MS&quot;; margin: 0px; text-align: center; margin:auto;">
+            <big>
+                <big>
+                    <strong>
+                        <small style="font-family: &quot;Comic Sans MS&quot;;">
+                            <small>
+                                <span class="auto-style59"
+                                      style="font-family: &quot;georgia&quot; , &quot;times new roman&quot; , &quot;times&quot; , serif; font-style: italic;">
+                                    Sincerely
+                                    Yours
+                                </span>
+                            </small>
+                        </small><br />Mr. John<br /><small style="font-family: &quot;Comic Sans MS&quot;;">
+                            <small>
+                                <span class="auto-style59"
+                                      style="font-family: &quot;georgia&quot; , &quot;times new roman&quot; , &quot;times&quot; , serif; font-style: italic;">
+                                    Health Researcher
+                                </span>
+                            </small>
+                        </small>
+                    </strong>
+                </big>
+            </big>
+        </div>
+    </div>
+    <div style="text-align: center; vertical-align: middle;">
+        <span style="color: black; font-family: &quot;comic sans ms&quot;; font-style: italic; font-weight: bold;">
+            It
+            is better to ask question than to remain ignorant. Therefore, do you have any
+            question to ask or an inquiry to make? If yes, get in touch with me through any of
+            the routes below!
+        </span>
+    </div>
+
+    <a href="https://api.whatsapp.com/send?phone=2347068649866&amp;text=Hello%20weakerection%20MensHealth%20Care%21"
+       target="_blank">
+        <img alt=""
+             src="https://doctornaturalsolution.com.ng/be-strong-morethan-your-wife_files/whatsapp_chat.png"
+             style="border: 0px solid; height: 63px; width: 207px;" />
+    </a>
+
+    <div class="rows between b-transparent content drop-0 br-4 m-t-16 p-16" style="border:solid 1px #076891;">
+        <h2 style="color:#076891!important;" class="fw-6 c-white">Delivery 🚚 Available Nationwide (🇳🇬)</h2>
+        <img src="https://res.cloudinary.com/fzany-inc/image/upload/v1559032784/e4_qc3wtg.png" style="height:49px;" />
+    </div>
+    <footer class="footer">
+        <div class="content grid">
+            <div class="col-12">
+                <div class="rows middle between">
+                    <span class="c-white"><a class="fw-4 c-d-black c-h-black" href="tel:2347068649866">© @DateTime.Now.Year John Drug Store | 📞 07068649866</a></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</main>

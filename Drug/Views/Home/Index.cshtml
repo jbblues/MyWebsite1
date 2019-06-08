@@ -1,52 +1,88 @@
 ﻿
-@model Drug.Models.CountryList
+@model Drug.Models.GroupList
 
 
 <main class="main p-l-16 p-r-16 p-b-16" style="max-width:1000px; margin: 0 auto;">
-
+    <div class="rows between b-transparent content drop-0 br-4 m-t-16 p-16" style="border:solid 1px #076891;">
+        <h2 style="color:#076891!important;" class="fw-6 c-white">Natural Remedy for Health Challenges</h2>
+        <img src="https://res.cloudinary.com/fzany-inc/image/upload/v1559032784/e4_qc3wtg.png" style="height:49px;" />
+    </div>
+    <div class="rows between b-transparent content drop-0 br-4 m-t-16 p-16" style="border:solid 1px #076891;">
+        <p style="color:#076891!important;" class="fw-3 c-white"> Hello and welcome here! I'm John, a Natural Health Care Researcher and I'm here because of you.</p>
+        <p style="color:#076891!important;" class="fw-3 c-white">To every problem, there is always a solution. I'm introducing you to Natural Supplements that can bring healing and freedom from series of health challenges addressed below:</p>
+    </div>
     @{
-        if (Model.Countries != null)
+        if (Model.DrugGroups != null)
         {
-            <div class="rows between b-transparent content drop-0 br-4 m-t-16 p-16" style="border:solid 1px #076891;">
-                <h2 style="color:#076891!important;" class="fw-6 c-white">Range - @Model.Countries.Count() countries</h2>
-                <img src="~/images/mrdisu bill.e png 4.png" style="width:120px; height:29px;" />
-            </div>
-            foreach (var country in Model.Countries)
+
+            foreach (var grp in Model.DrugGroups)
             {
-                string normalname = country.Name.Replace(" ", "");
+                string normalname = grp.Name.Replace(" ", "");
                 <div id="@normalname" class="grid b-white content drop-1 br-4 m-t-16 p-0 overflow-hidden">
                     <div class="col-3 col-ts-1 row-12 rows middle center" style="background-color:#076891!important;">
-                        <img class="b-white p-l-8 p-r-8 br-4 drop-1" src="@country.Flag" alt="@country.Name">
+                        <img class="b-white p-l-8 p-r-8 br-4 drop-1" src="@grp.Photo" alt="@grp.Name">
                     </div>
                     <div class="col-9 col-ts-11 row-1 rows middle fw-6 c-white" style="background-color:#076891!important;">
-                        <h3 class="fw-6">@country.Name</h3>
+                        <h3 class="fw-6">@grp.Name</h3>
+                        @{
+                            string buy_url = $"https://wa.me/2347068649866?text=I%20want%20to%20buy%20a%20drug%20for%20{grp.Name}%20care.";
+                        }
+                        <div class="br-4 m-t-8 p-8" style="border:solid 1px #FFFFFF; margin-left:10px;">
+                            <a class="fw-4 c-white" target="_blank" href="@buy_url">  Buy Now 🛒</a>
+                        </div>
                     </div>
                     <div class="grid gutter-16 col-9 col-ts-11 row-11 p-16">
-                        @foreach (var service in country.Services)
+                        @foreach (var service in grp.AwonOgun)
                         {
-                        <div class="col-12 col-ts-4 p-16 b-green br-4 drop-1 columns" style="background-color:#39ACD9!important;">
-                            <h4 class="fw-4 c-white p-b-8" style="font-weight:800;">@service.Header</h4>
-                            <hr class="d-b-white m-b-8">
-                            <div class="grid s-max-grow">
-                                @foreach (var colum in service.Columns)
-                                {
-                                    <div class="col-6">
-                                        @foreach (var bosy in colum.Body)
+                            <div class="col-12 col-ts-4 p-16 b-green br-4 drop-1 columns" style="background-color:#39ACD9!important;">
+                                <h4 class="fw-4 c-white p-b-8" style="font-weight:800;">@service.Header</h4>
+                                <hr class="d-b-white m-b-8">
+                                <div class="grid s-max-grow">
+                                    <div class="col-12">
+                                        @foreach (var row in service.Rows)
                                         {
-                                            <div class="c-white fw-4 bother" >@bosy</div>
+
+                                            @foreach (var bosy in row.Body)
+                                            {
+                                                <div class="c-white fw-4 bother">@bosy</div>
+                                            }
                                         }
                                     </div>
-                                }
+                                </div>
+                                <div class="br-4 m-t-8 p-8" style="border:solid 1px #FFFFFF; margin-left:10px;">
+                                    @*<a class="fw-4 c-white" target="_blank" href="@buy_url">Click to Read More</a>*@
+                                    @Html.ActionLink("Click to Read More", "Details", new { guid = service.ID })
+
+                                </div>
                             </div>
-                        </div>
                         }
-                      
+
                     </div>
                 </div>
 
             }
 
+
         }
+
     }
-   
+    <div class="rows between b-transparent content drop-0 br-4 m-t-16 p-16" style="border:solid 1px #076891;">
+        <p style="color:#076891!important;" class="fw-3 c-white">💨 Our products are NAFDAC Certified ✔</p>
+        <p style="color:#076891!important;" class="fw-3 c-white">💨 2-in-1 For Peak Sexual Performance is a Natural Dietary Supplement combination that can help you maintain Optimum Erection and Stamina for Sex. It is made up of strictly natural ingredients. It has No negative side effects rather than improving your Erection and Stamina for Sex  ✔</p>
+        <p style="color:#076891!important;" class="fw-3 c-white">💨 Enjoy Pay on Delivery Service  ✔</p>
+    </div>
+
+    <div class="rows between b-transparent content drop-0 br-4 m-t-16 p-16" style="border:solid 1px #076891;">
+        <h2 style="color:#076891!important;" class="fw-6 c-white">Delivery 🚚 Available Nationwide (🇳🇬)</h2>
+        <img src="https://res.cloudinary.com/fzany-inc/image/upload/v1559032784/e4_qc3wtg.png" style="height:49px;" />
+    </div>
+    <footer class="footer">
+        <div class="content grid">
+            <div class="col-12">
+                <div class="rows middle between">
+                    <span class="c-white"><a class="fw-4 c-d-black c-h-black" href="tel:2347068649866">© @DateTime.Now.Year John Drug Store</a>, all rights reserved</span>
+                </div>
+            </div>
+        </div>
+    </footer>
 </main>
